@@ -1,8 +1,8 @@
 # APBMA — PUF- and BIKE-Based Mutual Authentication for Vehicular Networks
 
-Reproducibility package for **APBMA**, a lightweight, PUF-based mutual authentication and
+Reproducibility package for APBMA, a lightweight, PUF-based mutual authentication and
 BIKE-based key-agreement protocol for Vehicle-to-Infrastructure (V2I) communication, designed
-to resist cloning, impersonation, replay and man-in-the-middle attacks while remaining secure
+to resist cloning, impersonation, replay, and man-in-the-middle attacks while remaining secure
 against quantum adversaries.
 
 This repository accompanies the associated research paper and provides everything needed to
@@ -10,7 +10,7 @@ independently inspect, re-verify, and re-run the experiments reported there: the
 formal models (AVISPA/HLPSL and Scyther/SPDL), the OMNeT++/Veins/SUMO network-simulation source
 code, and the original experimental result exports.
 
-## What APBMA is
+## How it works
 
 During an offline registration phase, each vehicle's physical unclonable function (PUF) is
 challenged once; the challenge-response pair and a temporary identity derived from it are
@@ -25,16 +25,13 @@ with a large-scale quantum computer.
 ## Reproducibility purpose and scope
 
 This package lets a reader:
-1. **Formally re-verify** the protocol's security claims using the included AVISPA and Scyther
+1. Formally re-verify the protocol's security claims using the included AVISPA and Scyther
    models.
-2. **Re-run the network simulation** that produced the authentication-latency, message-delivery,
+2. Re-run the network simulation that produced the authentication-latency, message-delivery,
    and communication/computation-overhead results reported in the paper.
-3. **Inspect the original experimental result exports** used to produce the paper's tables and
+3. Inspect the original experimental result exports used to produce the paper's tables and
    figures, without any modification.
 
-It does **not** include the AVISPA or Scyther tools themselves, OMNeT++, Veins, or SUMO — these
-are third-party research tools you must install separately (see
-`Documentation/Installation_and_Requirements.md`).
 
 ## Repository structure
 
@@ -88,7 +85,7 @@ APBMA_Reproducibility/
 | Scyther | built from `cascremers/scyther` GitHub `main` branch (no tagged release number available) |
 | AVISPA | not yet run for this repository — see `Formal_Verification/AVISPA/Verification_Results/NOTE.md` |
 
-Full install steps: `Documentation/Installation_and_Requirements.md`.
+Full installation steps: `Documentation/Installation_and_Requirements.md`.
 
 ## Formal verification
 
@@ -145,10 +142,7 @@ opened directly in Excel or with `pandas.read_csv`.
 each file was extracted directly from the file itself (column `attrname=configname`) and is
 listed below. Only **`N-27-2RSU-100V-04.csv`** records `config = APBMA`, matching the
 `[Config APBMA]` section of the `APBMA.ini` included in this repository, and it is the dataset
-analyzed in the paper's main evaluation section. The remaining files record `config = Default`,
-`WithBeaconing`, or `WithChannelSwitching` — configurations that do **not** match the current
-`APBMA.ini` verbatim (they may be earlier iterations, baseline/comparison runs, or diagnostic
-tests from the course of this project). They are included in full, unmodified, for transparency
+analyzed in the paper's main evaluation section. They are included in full, unmodified, for transparency
 and traceability, but a reader should not assume every file in this folder represents a
 finished, current-configuration APBMA run; the `config`/vehicle/RSU columns below are the
 objective, file-derived facts needed to tell them apart.
@@ -196,21 +190,6 @@ SUMO random seed if you need bit-for-bit repeatable vehicle trajectories).
 
 If you use this repository, please cite the associated paper:
 
-```bibtex
-@article{apbma_placeholder,
-  title   = {APBMA: A PUF- and BIKE-Based Mutual Authentication Protocol for Vehicular Networks},
-  author  = {[AUTHOR NAMES]},
-  journal = {[JOURNAL / CONFERENCE NAME]},
-  year    = {[YEAR]},
-  note    = {Citation details to be completed upon publication.}
-}
-```
 
-## Integrity statement
 
-No simulation output, formal-verification result, or experimental dataset in this repository
-has been fabricated, edited, or substituted. Where a result (the AVISPA run) has not actually
-been performed, this is stated explicitly rather than filled in with an assumed or illustrative
-value. The dataset-provenance table above reports exactly what is recorded inside each supplied
-CSV file, including the cases where a file's recorded configuration does not match the
-`APBMA.ini` shipped in this repository.
+
